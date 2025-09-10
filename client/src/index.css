@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Angkor&display=swap');
+@import "tailwindcss";
+
+
+
+@theme {
+    --font-work: "Work Sans", sans-serif;
+    --font-thai: "Prompt", sans-serif;
+    --font-angkor: "Angkor", serif;
+    --color-yellow: #FFBB20;
+}
+
+@supports (animation-timeline: view()) {
+    @keyframes fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+
+        }
+    }
+}
+
+.scroll-section {
+    animation: fade-up auto linear both;
+    animation-timeline: view();
+    /*เริ่มอนิเมชั่นทำงานตอนกล่องเข้ามาในการมองเห็นและแสดงทั้งหมดตอนที่กล่องเข้ามาได้ 40% */
+    animation-range: entry 0% cover 30%;
+
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        clip-path: inset(100% 100% 0 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.card-animate {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* สำหรับ Chrome, Safari, Edge */
+}
+
+.slider {
+    position: relative;
+}
+
+.track-slider,
+.range-slider,
+.slider-left-val,
+.slider-right-value {
+    position: absolute;
+}
+
+.track-slider,
+.range-slider {
+    border-radius: 4px;
+    height: 6px;
+}
+
+.track-slider {
+    /* background-color: #022140; */
+    width: 100%;
+    z-index: 1;
+}
+
+.range-slider {
+    z-index: 2;
+}
+
+.slider-left-value {
+    left: 6px;
+}
+
+.slider-right-value {
+    right: -4px;
+}
+
+.thumb,
+.thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.thumb {
+    pointer-events: none;
+    position: absolute;
+    height: 0;
+    outline: none;
+}
+
+.thumb-left {
+    z-index: 3;
+}
+
+.thumb-right {
+    z-index: 4;
+}
+
+.thumb::-webkit-slider-thumb {
+    background-color: #FFBB20;
+    border-radius: 50%;
+    /* box-shadow: 0 0 1px 1px #f50707; */
+    border: 2px solid #fff;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-top: 4.5px;
+    pointer-events: all;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.thumb::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.thumb::-moz-range-thumb {
+    background-color: #FFBB20;
+    border-radius: 50%;
+    /* box-shadow: 0 0 1px 1px #f50707; */
+    border: 2px solid #fff;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin-top: 4.5px;
+    pointer-events: all;
+    position: relative;
+}
